@@ -20,16 +20,16 @@ Returns a representation of the collection of components.
     "components": [
       {
         "id": "wigwam-generator",
-        "label": "Generator of Wigwams",
-        "class": "app",
+        "label": "Wigwam Generator",
+        "class": "svc",
         "_links": {
             "self": { "href": "http://hum/components/wigwam-generator" }
         }
       },
       {
         "id": "customer-price-notifier",
-        "label": "Notifies customers of price changes",
-        "class": "app",
+        "label": "Customer Price Notifier",
+        "class": "svc ui",
         "_links": {
             "self": { "href": "http://hum/components/customer-price-notifier" }
         }
@@ -49,9 +49,26 @@ Returns a representation of a single component.
 
 ``` json
 {
-  "id": "wigwam-generator",
-  "label": "Generator of Wigwams",
+  "id": "customer-price-notifier",
+  "label": "Notifies customers of price changes",
   "class": "app",
+  "hostname": "customer-price-notifier.domain",
+  "vcs": "git:org/customer-price-notifier",
+  "custodians": [ "git:evanb", "git:the_stig" ],
+  "description": "Customer price notifier service notifies customers of changes in price. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  "depends-on": {
+    "wigwam-generator": {
+      "label": "Wigwam Generator",
+      "description": "Feed of generated wigwams",
+      "direction": "pull"
+    },
+    ...
+  },
+  "authority": {
+    "summary": "amber",
+    "live": ["label", "vcs", "custodians", "description"],
+    "static": ["depends-on"]
+  },
   "_links": {
     "self": {"href": "http://hum/components/customer-price-notifier"}
   }
