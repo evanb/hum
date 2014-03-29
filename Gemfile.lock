@@ -14,6 +14,8 @@ GEM
       method_source (~> 0.8)
       slop (~> 3.4)
     rack (1.5.2)
+    rack-test (0.6.2)
+      rack (>= 1.0)
     rake (10.2.2)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
@@ -37,6 +39,7 @@ DEPENDENCIES
   json
   pry
   rack
+  rack-test
   rake
   rspec
   webmachine
