@@ -34,6 +34,7 @@ Returns a representation of the collection of components.
             "self": { "href": "http://hum/components/customer-price-notifier" }
         }
       },
+      ...
     ]
   },
   "_links": {
